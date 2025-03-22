@@ -1,0 +1,41 @@
+---
+import type { HTMLTag } from "astro/types";
+
+type Props<Tag extends HTMLTag> = {
+  as: Tag;
+  color: keyof typeof colorClasses;
+  class?: string;
+  [key: string]: unknown;
+};
+
+const { as: Tag, class: classProp, color, ...props } = Astro.props;
+
+const variantClasses = {
+  h1: "text-2xl font-bold uppercase lg:text-4xl",
+  h2: "text-lg font-medium uppercase lg:text-2xl",
+  h3: "text-2xl font-semibold uppercase ",
+  h4: "text-xl font-semibold uppercase",
+  h5: "text-lg font-semibold uppercase",
+  p: "text-base font-medium",
+};
+
+const colorClasses = {
+  white: "text-white ",
+  black: "text-black",
+  primary: "text-primary-300",
+  neutral: "text-neutral-300",
+  gradient: "bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text  font-extrabold text-transparent",
+};
+
+const variant = Tag as keyof typeof variantClasses;
+const variantClass =
+  variantClasses[variant as keyof typeof variantClasses] || variantClasses.p;
+const colorClass =
+  colorClasses[color as keyof typeof colorClasses] || colorClasses.neutral;
+
+const classes = [variantClass, colorClass, classProp].filter(Boolean).join(" ");
+---
+
+<Tag class={classes} {...props}>
+  <slot />
+</Tag>

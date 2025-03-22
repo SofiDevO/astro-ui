@@ -1,0 +1,31 @@
+---
+interface ButtonProps {
+  href?: string;
+  class?: string;
+  variant?: string;
+}
+const { href, class: className, variant, ...props } = Astro.props;
+
+const variants = {
+  default: "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500", // Default
+  primary: "bg-violet-900 text-violet-400 hover:bg-violet-600 hover:text-white focus:ring-blue-500", // Primary
+  secondary: "bg-[#3e3947] text-white hover:bg-[#3e3947cd] focus:ring-purple-500", // Secondary
+  accent: "bg-[#2d3e6b] text-[#3b82f6] hover:bg-[#2d3e6bda] focus:ring-indigo-500", // Accent
+  info: "bg-[#1d4e62] textwhite hover:bg-[#245e75] focus:ring-cyan-500", // Info
+  success: "bg-[#1b5439] text-[#02ca4b] hover:bg-[#216545] focus:ring-green-500", // Success
+  warning: "bg-yellow-500 text-black hover:bg-yellow-600 focus:ring-yellow-500", // Warning
+  error: "bg-red-500 text-white hover:bg-red-600 focus:ring-red-500", // Error
+};
+const variantClasses = variants[ variant as keyof typeof variants] || variants.default;
+---
+ {
+   href ? (
+     <a href={href} class={`p-3 text-center rounded-md font-bold cursor-pointer max-w-[max-content] ${variantClasses} ${className}`} {...props} >
+       <slot />
+     </a>
+   ) : (
+     <button class={`p-3  text-center rounded-md font-bold cursor-pointer max-w-[max-content] ${variantClasses} ${className}`} {...props}>
+       <slot />
+     </button>
+   )
+ }
