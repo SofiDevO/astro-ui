@@ -1,5 +1,6 @@
 ---
 import type { HTMLTag } from "astro/types";
+import { colorClasses, variantClasses } from "@utils/getColor.js";
 
 type Props<Tag extends HTMLTag> = {
   as?: Tag;
@@ -10,12 +11,10 @@ type Props<Tag extends HTMLTag> = {
 };
 
 const { as: Tag, class: classProp, attributes, color, ...props } = Astro.props;
-import { colorClasses, variantClasses } from "@utils/getColor.js";
-
-
 const variant = Tag as keyof typeof variantClasses;
+
 const variantClass =
-  variantClasses[variant as keyof typeof variantClasses] || variantClasses.p;
+  variantClasses[variant] || variantClasses.p;
 const colorClass =
   colorClasses[color as keyof typeof colorClasses] || colorClasses.neutral;
 
