@@ -1,0 +1,31 @@
+---
+// In progress...
+import Layout from "@src/layouts/Layout.astro";
+const { componentName } = Astro.params;
+const query = new URLSearchParams(Astro.request.url);
+const componentProps = query.get('props') || '{}';
+
+const components = Object.values(import.meta.glob('../components/atoms/*.astro', { eager: true }));
+console.log(components);
+
+let component:any = components.find((component:any) => {
+  const name = component.default.name;
+  console.log(name, componentName);
+  if (name === componentName) {
+    return component;
+  };  
+});
+
+if (!component) {
+  return new Response(null, {
+    status: 404,
+    statusText: 'Not Found',
+  });
+}
+
+---
+<Layout title="test">
+  <component.default color="gradient"> 
+      Tets
+  </component.default>
+</Layout>
