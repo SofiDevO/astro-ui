@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+
+
 body{
-    @apply bg-gray-900 text-white flex flex-col min-h-screen max-w-[600px] mx-auto space-y-5 pt-10
+    @apply bg-gray-900 text-white flex flex-col items-start min-h-screen max-w-[1200px] mx-auto  pt-10
+}
+
+select{
+    @apply w-auto bg-gray-600 text-white p-2 hover:bg-slate-600 rounded-md
 }

@@ -1,12 +1,19 @@
 ---
-
-import Title from '../components/atoms/Title.astro';
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/atoms/Button.astro';
-
+import Title from "../components/atoms/Title.astro";
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/atoms/Button.astro";
+import {
+  titleVariants,
+  variantClasses,
+  colorClasses,
+} from "@utils/getColor.js";
+import ButtonSelect from "@src/components/molecules/ButtonSelect.astro";
+import TitleSelect from "@src/components/molecules/TitleSelect.astro";
 ---
 
 <Layout>
-	<Title  as="h1"  color="gradient" >Welcome to astro UI</Title>
-	<Button variant="error" class="w-auto">Click here to order a pipsha</Button>
+  <main class="flex flex-col items-start justify-center gap-20">
+    <TitleSelect />
+    <ButtonSelect />
+  </main>
 </Layout>

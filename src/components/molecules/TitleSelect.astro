@@ -1,0 +1,75 @@
+---
+import { colorClasses, variantClasses } from "@src/utils/getColor";
+import Title from "../atoms/Title.astro";
+
+
+---
+
+
+<div class="flex items-center justify-center gap-20 my">
+    <select name="" id="title-tag">
+      {
+        Object.keys(variantClasses).map((variant) => (
+          <option value={variant}>{variant}</option>
+        ))
+      };
+    </select>
+    <select name="" id="title-color">
+      {
+        Object.keys(colorClasses).map((variant) => (
+          <option value={variant}>{variant}</option>
+        ))
+      };
+    </select>
+    <Title attributes={{ id: "title-type" }} as="h1" color="gradient"
+      >Welcome to astro UI</Title
+    >
+  </div>
+
+
+
+<script>
+    import {
+      titleVariants,
+      variantClasses,
+      colorClasses,
+    } from "@utils/getColor.js";
+
+    /* Title styles */
+    const titleType = document.querySelector("#title-type") as HTMLElement;
+
+    const selectVariant = document.querySelector(
+      "#title-tag"
+    ) as HTMLSelectElement;
+    const selectColor = document.querySelector(
+      "#title-color"
+    ) as HTMLSelectElement;
+
+// export function uiStyle (tag: HTMLElement, variants: Array<Object>, selects: Array<HTMLSelectElement>) {
+//     let currentCombination = "";
+//     selects.forEach((select) => {
+//         select.addEventListener("change", (e) => {
+//             const variant = select.value;
+//             tag.classList.add
+//         });
+//     })
+// }
+    let currentCombination = selectVariant.value + selectColor.value;
+    selectVariant.addEventListener("change", (e) => {
+        const variant = selectVariant.value;
+        titleType.setAttribute("class",
+            variantClasses[variant as keyof typeof variantClasses]
+            + " " + colorClasses[selectColor.value as keyof typeof colorClasses]
+        );
+        currentCombination = variant + selectColor.value;
+    });
+
+    selectColor.addEventListener("change", (e) => {
+      const color = selectColor.value;
+      titleType.setAttribute("class",
+          variantClasses[currentCombination as keyof typeof variantClasses]
+          + " " + colorClasses[color as keyof typeof colorClasses]
+      );
+        currentCombination = selectVariant.value + color;
+    });
+  </script>

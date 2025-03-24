@@ -1,0 +1,34 @@
+---
+import { uiStyle } from "@src/utils/uiStyle";
+import {
+  titleVariants,
+  variantClasses,
+  colorClasses,
+} from "@utils/getColor.js";
+import Button from "../atoms/Button.astro";
+---
+
+<div class="flex items-center justify-center gap-20">
+  <select name="button-select" id="button-select" class="">
+    {
+      Object.keys(titleVariants).map((variant) => (
+        <option value={variant}>{variant}</option>
+      ))
+    };
+  </select>
+  <Button attributes={{ id: "button-type", disabled: true }} class="w-auto"
+    >Click here to order a pipsha</Button
+  >
+</div>
+
+<script>
+  import { titleVariants } from "@src/utils/getColor";
+  import { uiStyle } from "@src/utils/uiStyle";
+
+  /* Button styles */
+  const button = document.querySelector("#button-type") as HTMLButtonElement;
+  const colorValue = document.querySelector(
+    "#button-select"
+  ) as HTMLSelectElement;
+  uiStyle(button, titleVariants, colorValue);
+</script>
