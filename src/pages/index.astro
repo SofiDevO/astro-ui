@@ -5,6 +5,8 @@ import TitleSelect from "@src/components/molecules/TitleSelect.astro";
 import TitleDocs from "@src/components/organisms/TitleDocs.astro";
 const docs = await getCollection("docs");
 import { getCollection } from "astro:content";
+const posts = await getCollection("docs");
+console.log(posts);
 
 ---
 <Layout>
