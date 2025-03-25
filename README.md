@@ -1,48 +1,46 @@
-# Astro Starter Kit: Basics
 
-```sh
-npm create astro@latest -- --template basics
+# Astro UI
+![imagen del gitHob de sofi](https://avatars.githubusercontent.com/u/102200061?v=4)
+Esta es una libreria de componetes de Astro Creada por sofiDev. Esta libreria de componetes ayudara a desaarrollar apps con Astro mas rapido y tener componetes de Astro y tailwind css que por demas puedan ser facil de modifica y de codigo abierto.
+
+
+
+
+
+## Installation
+
+Install Astro ui with npm
+
+```bash
+  npm install 
+  npm run dev
 ```
+Estos son los comandos a ejecutar luego de clonar el proyecto para poder ejecutarlo. 
+## Redes sociales
+Redes sociales de SofiDev
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+[links sifiDev](https://links.itssofi.dev/)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[X / Twitter](https://twitter.com/itsofidev)
+## Tech Stack
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+**Client:**  Astro, TailwindCSS
 
-## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Contribuir al proyecto
 
-## 🧞 Commands
+Las contribuciones son lo que hacen que la comunidad de código abierto sea un lugar increíble para aprender, inspirar y crear. ¡Cualquier contribución que hagas es **muy apreciada**!
 
-All commands are run from the root of the project, from a terminal:
+Si tienes alguna sugerencia que podría mejorar el proyecto, por favor haz un [_fork_](https://github.com/SofiDevO/astro-ui/fork) del repositorio y crea una [_pull request_](https://github.com/SofiDevO/astro-ui/pulls). También puedes simplemente abrir un [_issue_](https://github.com/SofiDevO/astro-ui/issues) con la etiqueta "enhancement".
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Aquí tienes una guía rápida:
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Haz un [_fork_](https://github.com/SofiDevO/astro-ui/fork) del Proyecto
+2. Clona tu [_fork_](https://github.com/SofiDevO/astro-ui/fork) (`git clone <URL del fork>`)
+3. Añade el repositorio original como remoto (`git remote add upstream <URL del repositorio original>`)
+4. Crea tu Rama de Funcionalidad (`git switch -c feature/CaracteristicaIncreible`)
+5. Realiza tus Cambios (`git commit -m 'Add: alguna CaracterísticaIncreible'`)
+6. Haz Push a la Rama (`git push origin feature/CaracteristicaIncreible`)
+7. Abre una [_pull request_](https://github.com/SofiDevO/astro-ui/pulls)
