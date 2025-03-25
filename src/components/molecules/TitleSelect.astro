@@ -1,12 +1,10 @@
 ---
 import { colorClasses, variantClasses } from "@src/utils/getColor";
 import Title from "../atoms/Title.astro";
-
-
 ---
 
 
-<div class="flex items-center justify-center gap-20 my">
+<div id="title-filters" class="flex items-center justify-center gap-20 my">
     <select name="" id="title-tag">
       {
         Object.keys(variantClasses).map((variant) => (
@@ -21,55 +19,47 @@ import Title from "../atoms/Title.astro";
         ))
       };
     </select>
-    <Title attributes={{ id: "title-type" }} as="h1" color="gradient"
-      >Welcome to astro UI</Title
+    <Title attributes={{ id: "title-type" }} as="h1" color="gradient">Welcome to astro UI</Title
     >
+
   </div>
-
-
-
 <script>
     import {
-      titleVariants,
       variantClasses,
       colorClasses,
     } from "@utils/getColor.js";
 
     /* Title styles */
     const titleType = document.querySelector("#title-type") as HTMLElement;
-
     const selectVariant = document.querySelector(
       "#title-tag"
     ) as HTMLSelectElement;
     const selectColor = document.querySelector(
       "#title-color"
     ) as HTMLSelectElement;
+    const titleFilters = document.querySelector("#title-filters") as HTMLDivElement;
 
-// export function uiStyle (tag: HTMLElement, variants: Array<Object>, selects: Array<HTMLSelectElement>) {
-//     let currentCombination = "";
-//     selects.forEach((select) => {
-//         select.addEventListener("change", (e) => {
-//             const variant = select.value;
-//             tag.classList.add
-//         });
-//     })
-// }
-    let currentCombination = selectVariant.value + selectColor.value;
-    selectVariant.addEventListener("change", (e) => {
-        const variant = selectVariant.value;
-        titleType.setAttribute("class",
-            variantClasses[variant as keyof typeof variantClasses]
-            + " " + colorClasses[selectColor.value as keyof typeof colorClasses]
-        );
-        currentCombination = variant + selectColor.value;
-    });
+    type CurrentTag = keyof typeof variantClasses;
+    type CurrentColor = keyof typeof colorClasses;
 
-    selectColor.addEventListener("change", (e) => {
-      const color = selectColor.value;
+    let currentTag = selectVariant.value as CurrentTag;
+    let currentColor = selectColor.value as CurrentColor;
+
+    titleFilters.addEventListener("change", (e) => {
+      let tag = e.target as HTMLSelectElement;
+      if (tag.tagName !== "SELECT") return;
+      
+      if (tag.id === "title-color") {
+        currentColor = tag.value as CurrentColor;
+      }
+
+      if (tag.id === "title-tag") {
+        currentTag = tag.value as CurrentTag;
+      }
+
       titleType.setAttribute("class",
-          variantClasses[currentCombination as keyof typeof variantClasses]
-          + " " + colorClasses[color as keyof typeof colorClasses]
+          variantClasses[currentTag]
+          + " " + colorClasses[currentColor]
       );
-        currentCombination = selectVariant.value + color;
     });
   </script>
