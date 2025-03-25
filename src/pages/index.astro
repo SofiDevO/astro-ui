@@ -9,11 +9,28 @@ import {
 } from "@utils/getColor.js";
 import ButtonSelect from "@src/components/molecules/ButtonSelect.astro";
 import TitleSelect from "@src/components/molecules/TitleSelect.astro";
+import TitleDocs from "@src/components/organisms/TitleDocs.astro";
+const docs = await getCollection("docs");
+import { getCollection } from "astro:content";
+
 ---
 
 <Layout>
-  <main class="flex flex-col items-start justify-center gap-20">
-    <TitleSelect />
-    <ButtonSelect />
+  <header>
+    <nav>
+      <ul>
+          {
+              docs.map((doc) => (
+
+                  <li><a href={`/docs/${doc.id}`}>{doc.id}</a></a></li>
+              ))
+          }
+      </ul>
+  </nav>
+  </header>
+  <main class="w-full flex flex-col items-start justify-center gap-20">
+      <ButtonSelect />
+
+
   </main>
 </Layout>

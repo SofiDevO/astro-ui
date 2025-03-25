@@ -3,9 +3,14 @@
   "include": [".astro/types.d.ts", "**/*", "src/**/*.ts", "src/**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-     "baseUrl": ".",
+    "strictNullChecks": true,
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "baseUrl": ".",
     "paths": {
       "@src/*": ["src/*"],
+      "@docs/*": ["src/componets/docs/*"],
       "@components/*": ["src/components/*"],
       "@atoms/*": ["src/components/atoms/*"],
       "@molecules/*": ["src/components/molecules/*"],
@@ -19,6 +24,6 @@
       "@utils/*": ["src/utils/*"],
       "@sass/*": ["src/sass/*"],
       "@img/*": ["public/img/*"]
-      },
+    }
   }
 }

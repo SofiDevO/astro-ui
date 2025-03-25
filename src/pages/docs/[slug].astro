@@ -1,0 +1,39 @@
+---
+import Layout from "@src/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+
+let htmlRender = "";
+
+
+export async function getStaticPaths() {
+    const docs = await getCollection("docs");
+    return docs.map((doc) => ({
+        params: { slug: doc.id },
+        props: { doc },
+    }));
+
+}
+
+const { doc  } = Astro.props;
+const docs = await getCollection("docs");
+
+
+console.log(doc);
+
+
+---
+
+<Layout>
+    <nav>
+        <ul>
+            {
+                docs.map((doc) => (
+
+                    <li><a href={`/docs/${doc.id}`}>{doc.id}</a></a></li>
+                ))
+            }
+        </ul>
+    </nav>
+    <fragment set:html={doc.rendered?.html}></fragment>
+</Layout>
