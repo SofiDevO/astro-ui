@@ -7,11 +7,11 @@ const docs = await getCollection("docs");
 import { getCollection } from "astro:content";
 const posts = await getCollection("docs");
 console.log(posts);
-
+import Button from "../components/atoms/Button.astro";
 ---
 <Layout>
   <header>
-    <nav>
+    <!-- <nav>
       <ul>
           {
               docs.map((doc) => (
@@ -21,10 +21,10 @@ console.log(posts);
           }
       </ul>
   </nav>
-  </header>
-  <main class="w-full flex flex-col items-start justify-center gap-20">
-      <ButtonSelect />
-
+  </header> -->
+  <main class="w-full flex flex-col items-start justify-center gap-20 ">
+      <!-- <ButtonSelect /> -->
+        <Button variant="warning" >Hola mundo</Button>
 
   </main>
 </Layout>

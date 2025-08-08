@@ -9,18 +9,19 @@ interface Props {
 }
 const { href, class: className, attributes, variant = 'default', ...props} = Astro.props;
 const variantClasses = titleVariants[variant] || titleVariants.default;
+const baseClasses = 'p-3 text-center rounded-md font-bold cursor-pointer max-w-[max-content]  '
 ---
  {
    href ? (
      <a href=
-      {href} 
-      {...attributes}  
-      class={`p-3 text-center rounded-md font-bold cursor-pointer max-w-[max-content] ${variantClasses} ${className}`} 
+      {href}
+      {...attributes}
+      class={`${baseClasses} ${variantClasses} ${className}`}
       {...props}>
        <slot />
      </a>
    ) : (
-     <button {...attributes} class={` ${variantClasses} ${className}  ${attributes?.disabled && 'disabled:opacity-50 disabled:cursor-not-allowed'}`} {...props}>
+     <button {...attributes} class={`${baseClasses} ${variantClasses} ${className}  ${attributes?.disabled && 'disabled:opacity-50 disabled:cursor-not-allowed'}`} {...props}>
        <slot />
      </button>
    )
