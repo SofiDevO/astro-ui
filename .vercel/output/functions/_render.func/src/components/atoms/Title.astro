@@ -1,0 +1,26 @@
+---
+import type { HTMLTag } from "astro/types";
+import { colorClasses, variantClasses } from "@utils/getColor.js";
+
+type Props<Tag extends HTMLTag> = {
+  as?: Tag;
+  color: keyof typeof colorClasses;
+  class?: string;
+  [key: string]: unknown;
+  attributes?: Record<string, unknown>;
+};
+
+const { as: Tag, class: classProp, attributes, color, ...props } = Astro.props;
+const variant = Tag as keyof typeof variantClasses;
+
+const variantClass =
+  variantClasses[variant] || variantClasses.p;
+const colorClass =
+  colorClasses[color as keyof typeof colorClasses] || colorClasses.neutral;
+
+const classes = [variantClass, colorClass, classProp].filter(Boolean).join(" ");
+---
+
+<Tag class={classes} {...props}  {...attributes}  >
+  <slot />
+</Tag>
