@@ -1,27 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ButtonSelect from "@src/components/molecules/ButtonSelect.astro";
-import TitleSelect from "@src/components/molecules/TitleSelect.astro";
-import TitleDocs from "@src/components/organisms/TitleDocs.astro";
-const docs = await getCollection("docs");
-import { getCollection } from "astro:content";
-const posts = await getCollection("docs");
-console.log(posts);
 import Button from "../components/atoms/Button.astro";
 ---
 <Layout>
   <header>
-    <!-- <nav>
-      <ul>
-          {
-              docs.map((doc) => (
-
-                  <li><a href={`/docs/${doc.id}`}>{doc.id}</a></a></li>
-              ))
-          }
-      </ul>
-  </nav>
-  </header> -->
   <main class="w-full flex flex-col items-start justify-center gap-20 ">
       <!-- <ButtonSelect /> -->
         <Button variant="warning" >Hola mundo</Button>
