@@ -2,11 +2,37 @@
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/atoms/Button.astro";
 ---
+
 <Layout>
   <header>
-  <main class="w-full flex flex-col items-start justify-center gap-20 ">
-      <!-- <ButtonSelect /> -->
-        <Button variant="warning" >Hola mundo</Button>
-
-  </main>
+    <main
+      class="w-full flex items-center justify-center gap-20 max-w-1/2 mx-auto px-10 py-20 flex-col "
+    >
+      <section class="flex  justify-center w-full flex-col gap-10 ">
+        <h1 class="text-left text-4xl font-bold text-cyan-400">Botónes</h1>
+        <article
+          class="grid-container border-cyan-400 border-y-1 py-4"
+        >
+          <Button variant="default">Hola mundo</Button>
+          <Button variant="primary">Hola mundo</Button>
+          <Button variant="secondary">Hola mundo</Button>
+          <Button variant="accent">Hola mundo</Button>
+          <Button variant="info">Hola mundo</Button>
+          <Button variant="success">Hola mundo</Button>
+          <Button variant="error">Hola mundo</Button>
+        </article>
+      </section>
+    </main>
+  </header>
 </Layout>
+
+<style>
+  .grid-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+</style>
