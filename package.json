@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.1",
-    "@astrojs/vercel": "^8.2.5",
     "@tailwindcss/vite": "^4.0.15",
     "astro": "^5.5.4",
     "gitmoji-cli": "^9.5.0",
